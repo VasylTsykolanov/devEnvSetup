@@ -28,6 +28,9 @@ def configure_logging(level: int = logging.INFO, log_format: Optional[str] = Non
     handlers=[logging.StreamHandler(sys.stdout)],
     force=True
     )
+
+    logging.getLogger("py4j").setLevel(logging.ERROR)
+    logging.getLogger("py4j.clientserver").setLevel(logging.ERROR)
     
     return logging.getLogger(__name__)
 
