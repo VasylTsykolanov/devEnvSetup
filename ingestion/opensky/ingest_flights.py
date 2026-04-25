@@ -1,11 +1,16 @@
 # Databricks notebook source
 # This pipeline ingest flights data from OpenSky API and store it in json file
+import sys
+import os
 import requests
 import json
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_timestamp, lit
+
+cwd = os.getcwd()
+sys.path.append(cwd)
 
 from common.utils import configure_logging
 
