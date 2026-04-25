@@ -16,11 +16,16 @@ from common.utils import configure_logging
 
 logger = configure_logging()
 
+dbutils.widgets.text("unity_catalog", "")
+dbutils.widgets.text("storage", "")
+dbutils.widgets.text("schema", "")
+dbutils.widgets.text("volume", "")
+
 default_config = {
-    "unity_catalog": 'data_dev',
-    "storage": 'texelstgdev',
-    "schema": 'raw',
-    "volume": 'opensky'
+    "unity_catalog": dbutils.widgets.get("unity_catalog"),
+    "storage":       dbutils.widgets.get("storage"),
+    "schema":        dbutils.widgets.get("schema"),
+    "volume":        dbutils.widgets.get("volume"),
 }
 
 try:
