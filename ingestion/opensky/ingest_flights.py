@@ -1,7 +1,7 @@
 # Databricks notebook source
 # This pipeline ingest flights data from OpenSky API and store it in json file
 import sys
-import subprocess
+import os
 import requests
 import json
 from datetime import datetime
@@ -9,8 +9,13 @@ from zoneinfo import ZoneInfo
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_timestamp, lit
 
-import subprocess
-repo_root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).decode().strip()
+ctx = dbutils.notebook.entry_point.getDbutils().notebook().getContext()
+notebook_path = ctx.notebookPath().get()
+# returns '/Users/vtsykolanov@hotmail.com/devEnvSetup/ingestion/opensky/ingest_flights'
+
+workspace_path = "/Workspace" + notebook_path
+# navigate up 2 levels: opensky -> ingestion -> repo root
+repo_root = os.path.abspath(os.path.join(os.path.dirname(workspace_path), "../.."))
 sys.path.insert(0, repo_root)
 
 from common.utils import configure_logging
