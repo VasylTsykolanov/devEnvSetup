@@ -7,6 +7,10 @@ from zoneinfo import ZoneInfo
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_timestamp, lit
 
+from common.utils import configure_logging
+
+logger = configure_logging()
+
 default_config = {
     "unity_catalog": 'data_dev',
     "storage": 'texelstgdev',
