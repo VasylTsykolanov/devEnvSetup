@@ -23,9 +23,9 @@ dbutils.widgets.text("volume", "")
 
 default_config = {
     "unity_catalog": dbutils.widgets.get("unity_catalog"),
-    "storage":       dbutils.widgets.get("storage"),
-    "schema":        dbutils.widgets.get("schema"),
-    "volume":        dbutils.widgets.get("volume"),
+    "storage": dbutils.widgets.get("storage"),
+    "schema": dbutils.widgets.get("schema"),
+    "volume": dbutils.widgets.get("volume"),
 }
 
 try:
