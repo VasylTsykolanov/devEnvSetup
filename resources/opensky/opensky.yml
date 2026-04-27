@@ -1,0 +1,28 @@
+resources:
+  jobs:
+    opensky_ingest_data:
+      name: opensky_ingest_data
+      email_notifications:
+        on_failure:
+          - vtsykolanov@hotmail.com
+      schedule:
+        quartz_cron_expression: 19 0 2 * * ?
+        timezone_id: Europe/Zurich
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: opensky
+          notebook_task:
+            notebook_path: /Workspace/Users/vtsykolanov@hotmail.com/devEnvSetup/ingestion/opensky/ingest_flights
+            source: WORKSPACE
+      queue:
+        enabled: true
+      parameters:
+        - name: unity_catalog
+          default: data_dev
+        - name: storage
+          default: texelstgdev
+        - name: schema
+          default: raw
+        - name: volume
+          default: opensky
+      performance_target: PERFORMANCE_OPTIMIZED
