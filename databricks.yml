@@ -24,7 +24,7 @@ sync:
     - ".github"
 
 targets:
-  development_main:
+  dev:
     default: true
     mode: development
     variables:
@@ -35,7 +35,7 @@ targets:
       workspace: 
         host: "https://adb-7405612569285886.6.azuredatabricks.net/"
 
-  production_main:
+  prod:
     mode: production
     variables:
       unity_catalog: "data_prod"

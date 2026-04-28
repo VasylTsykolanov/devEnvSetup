@@ -1,0 +1,23 @@
+name: validate dab
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: "Validate bundle"
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - name: Validate bundle
+        run: databricks bundle validate --target dev
+        env:
+          DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
+          DATABRICKS_TENANT_ID: ${{ secrets.DATABRICKS_AZURE_TENANT_ID }}
