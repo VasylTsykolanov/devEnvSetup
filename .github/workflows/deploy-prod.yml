@@ -15,6 +15,6 @@ jobs:
       - name: Deploy bundle to prod
         run: databricks bundle deploy --target prod
         env:
-          ARM_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
-          ARM_TENANT_ID: ${{ secrets.DATABRICKS_AZURE_TENANT_ID }}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
