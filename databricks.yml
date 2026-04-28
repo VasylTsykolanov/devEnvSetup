@@ -27,20 +27,20 @@ targets:
   dev:
     default: true
     mode: development
+    workspace: 
+      host: "https://adb-7405612569285886.6.azuredatabricks.net/"
     variables:
       unity_catalog: "data_dev"
       schema: "raw"
       volume: "opensky"
       storage: "texelstgdev"
-      workspace: 
-        host: "https://adb-7405612569285886.6.azuredatabricks.net/"
 
   prod:
     mode: production
+    workspace: 
+      host: "https://adb-7405608758701445.5.azuredatabricks.net/"
     variables:
       unity_catalog: "data_prod"
       schema: "raw"
       volume: "opensky"
       storage: "texelstgprod"
-      workspace: 
-        host: "https://adb-7405608758701445.5.azuredatabricks.net/"
