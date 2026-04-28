@@ -1,0 +1,46 @@
+bundle:
+  name: devenvsetup
+
+variables:
+  unity_catalog:
+    description: "Unity catalog where data is located"
+  schema:
+    description: "Unity catalog schema where the data is stored"
+  volume:
+    description: "Unity catalog volume within raw where the data is stored"
+  storage:
+    description: "Azure storage account name where the data is stored"
+
+include:
+  - "resources/**/*.yml"
+
+sync:
+  include:
+    - "resources"
+    - "transformations"
+    - "ingestion"
+    - "common"
+  exclude:
+    - ".github"
+
+targets:
+  dev:
+    default: true
+    mode: development
+    workspace: 
+      host: "https://adb-7405612569285886.6.azuredatabricks.net/"
+    variables:
+      unity_catalog: "data_dev"
+      schema: "raw"
+      volume: "opensky"
+      storage: "texelstgdev"
+
+  prod:
+    mode: production
+    workspace: 
+      host: "https://adb-7405608758701445.5.azuredatabricks.net/"
+    variables:
+      unity_catalog: "data_prod"
+      schema: "raw"
+      volume: "opensky"
+      storage: "texelstgprod"
