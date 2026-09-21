@@ -12,8 +12,7 @@ resources:
       tasks:
         - task_key: opensky
           notebook_task:
-            notebook_path: /Workspace/Users/vtsykolanov@hotmail.com/devEnvSetup/ingestion/opensky/ingest_flights
-            source: WORKSPACE
+            notebook_path: ../ingestion/opensky/ingest_flights.py
       queue:
         enabled: true
       parameters:
