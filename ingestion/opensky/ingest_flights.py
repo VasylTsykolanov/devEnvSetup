@@ -6,8 +6,6 @@ import requests
 import json
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import current_timestamp, lit
 
 cwd = os.getcwd()
 sys.path.append(cwd)
